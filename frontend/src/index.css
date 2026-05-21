@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Agri Theme - Green & Earth Brown */
+    --background: 45 20% 96%;
+    --foreground: 25 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 40% 15%;
+
+    /* Primary: Rich Agricultural Green */
+    --primary: 130 65% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 130 65% 30%;
+    --primary-glow: 130 65% 45%;
+
+    /* Secondary: Earth Brown */
+    --secondary: 25 50% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 25 50% 40%;
+
+    /* Accent: Light Green */
+    --accent: 130 45% 88%;
+    --accent-foreground: 130 65% 25%;
+
+    --muted: 45 20% 90%;
+    --muted-foreground: 25 30% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 130 20% 85%;
+    --input: 130 20% 92%;
+    --ring: 130 65% 35%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(130 65% 35%), hsl(130 65% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(25 50% 45%), hsl(25 50% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(130 65% 35%) 0%, hsl(25 50% 45%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(130 65% 35% / 0.15);
+    --shadow-medium: 0 4px 16px -4px hsl(130 65% 35% / 0.2);
+    --shadow-large: 0 8px 32px -8px hsl(130 65% 35% / 0.25);
+    --shadow-glow: 0 0 20px hsl(130 65% 45% / 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 25 25% 10%;
+    --foreground: 45 20% 95%;
+
+    --card: 25 20% 14%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 25 20% 14%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 130 60% 45%;
+    --primary-foreground: 25 25% 10%;
+    --primary-hover: 130 60% 50%;
+    --primary-glow: 130 60% 55%;
+
+    --secondary: 25 45% 35%;
+    --secondary-foreground: 45 20% 95%;
+    --secondary-hover: 25 45% 40%;
+
+    --accent: 130 30% 25%;
+    --accent-foreground: 130 60% 85%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 45 15% 60%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 45 20% 95%;
+
+    --border: 25 20% 22%;
+    --input: 25 20% 18%;
+    --ring: 130 60% 45%;
+
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 20px hsl(130 60% 45% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Glass morphism utilities */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-card/80 backdrop-blur-lg border border-border/20;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-medium)] hover:-translate-y-1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}

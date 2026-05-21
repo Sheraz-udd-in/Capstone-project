@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "Smart Yield API",
+    "description": "Agricultural Advisory API Collection"
+  },
+  "item": [
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Farmer Name\", \"email\": \"farmer@example.com\", \"password\": \"password123\", \"state\": \"Maharashtra\", \"district\": \"Nashik\", \"soilType\": \"Black Soil\"}"
+        },
+        "url": "http://127.0.0.1:8080/api/auth/register"
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"farmer@example.com\", \"password\": \"password123\"}"
+        },
+        "url": "http://127.0.0.1:8080/api/auth/login"
+      }
+    },
+    {
+      "name": "Crops - Get All",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8080/api/crops"
+      }
+    },
+    {
+      "name": "Crops - Get Recommendations",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8080/api/crops/recommend?soilType=Black%20Soil"
+      }
+    },
+    {
+      "name": "Fertilizers - Get All",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8080/api/fertilizers"
+      }
+    },
+    {
+      "name": "Queries - Submit",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"farmerName\": \"Farmer Name\", \"farmerEmail\": \"farmer@example.com\", \"district\": \"Nashik\", \"query\": \"How to control pests?\", \"category\": \"Pest\"}"
+        },
+        "url": "http://127.0.0.1:8080/api/queries"
+      }
+    },
+    {
+      "name": "Weather - Get All",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8080/api/weather"
+      }
+    },
+    {
+      "name": "Weather - By District",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8080/api/weather/district/Nashik"
+      }
+    }
+  ]
+}
